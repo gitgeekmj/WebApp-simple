@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -22,5 +22,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <h1>This is my JSP page!</h1>
+    <hr>
+    <!-- 这是HTML注释 对客户端可见 -->
+    <%-- 这是JSP注释 对客户端不可见 --%>
+    <%
+    //这是单行注释 对客户端不可见
+     %>
+    <%!
+    	String s = "a";
+    	int add(int x,int y)
+    	{
+    		return x*y;
+    	}
+    %>
+    
+    <%
+    	out.println("hello world!");
+    	out.println(s);
+    	out.println(add(3,4));
+    %>
   </body>
 </html>
