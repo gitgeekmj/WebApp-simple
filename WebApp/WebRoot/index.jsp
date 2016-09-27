@@ -21,25 +21,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <h1>This is my JSP page!</h1>
+    <h1>用户登录</h1>
     <hr>
     <!-- 这是HTML注释 对客户端可见 -->
     <%-- 这是JSP注释 对客户端不可见 --%>
     <%
-    //这是单行注释 对客户端不可见
+    //下方表单提交试用get方式，get方式会将表单信息以明文形式显示在地址栏中，而post不会。
      %>
-    <%!
-    	String s = "a";
-    	int add(int x,int y)
-    	{
-    		return x*y;
-    	}
-    %>
-    
-    <%
-    	out.println("hello world!");
-    	out.println(s);
-    	out.println(add(3,4));
-    %>
+    <form action="dologin.jsp" name="loginForm"method="get" >
+    <table>
+    	<tr>
+    		<td>用户名：</td>
+    		<td><input type="text"name="username"/></td>
+    	</tr>
+    	<tr>
+    		<td>密码：</td>
+    		<td><input type="password"name="password"/></td>
+    	</tr>
+    	<tr>
+    		<td colspan="2"><input type="submit"value="登录"></td>
+    	</tr>
+    </table>
+    </form>
   </body>
 </html>
