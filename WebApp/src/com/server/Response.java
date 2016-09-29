@@ -24,9 +24,12 @@ public class Response {
 		try {
 			File file = new File(HttpServer.WEB_ROOT, request.getUri());
 			if (file.exists()) {
+				// As long as the file exists,the file read into the FileInputStream.
 				fis = new FileInputStream(file);
+				// Reads the bytes in the file from the input stream into the array
 				int ch = fis.read(bytes, 0, BUFFER_SIZE);
 				while (ch != -1) {
+					// Writes the bytes in the array to the output stream.
 					output.write(bytes, 0, BUFFER_SIZE);
 					ch = fis.read(bytes, 0, BUFFER_SIZE);
 				}
